@@ -2,3 +2,4 @@ selenium
 pytest
 pytest-xdist
 unittestzero
+pyyaml
