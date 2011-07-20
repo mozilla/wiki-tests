@@ -34,6 +34,7 @@
 #
 # ***** END LICENSE BLOCK *****
 
+import pytest
 from unittestzero import Assert
 
 import home_page
@@ -43,6 +44,7 @@ import log_out_page
 
 class TestLogIn:
 
+    @pytest.mark.prod
     def test_valid_user_can_log_out(self, testsetup):
         home_pg = home_page.HomePage(testsetup)
         home_pg.go_to_home_page()
