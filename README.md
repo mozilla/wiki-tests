@@ -37,13 +37,7 @@ Once this is all set up you will need to download and start a Selenium Grid inst
 
 ### Running tests locally
 
-To run tests locally its a simple case of calling the command below from this directory
-
-    py.test . --browser-name=<BROWSER_NAME> --browser-version=<BROWSER_VERSION> --platform=<PLATFORM>
-
-All parameters are required, and depend on the environments provided by your Selenium Grid instance. For example:
-
-    py.test . --browser-name=FIREFOX --browser-version=4.0 --platform=MAC
+See the [pytest-mozwebqa](https://github.com/davehunt/pytest-mozwebqa) project for details and examples of running tests.
 
 Writing Tests
 -------------

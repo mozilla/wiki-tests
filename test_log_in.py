@@ -44,12 +44,12 @@ import log_in_or_create_account_page
 class TestLogIn:
 
     @pytest.mark.prod
-    def test_valid_user_can_log_in(self, testsetup):
-        home_pg = home_page.HomePage(testsetup)
+    def test_valid_user_can_log_in(self, mozwebqa):
+        home_pg = home_page.HomePage(mozwebqa)
         home_pg.go_to_home_page()
         home_pg.personal_tools_region.click_log_in_or_create_account()
 
-        log_in_or_create_account_pg = log_in_or_create_account_page.LogInOrCreateAccountPage(testsetup)
+        log_in_or_create_account_pg = log_in_or_create_account_page.LogInOrCreateAccountPage(mozwebqa)
         log_in_or_create_account_pg.log_in()
         Assert.true(home_pg.is_the_current_page)
         Assert.false(home_pg.personal_tools_region.is_log_in_or_create_account_visible)

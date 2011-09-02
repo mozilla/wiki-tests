@@ -48,10 +48,10 @@ class LogInOrCreateAccountPage(base_page.BasePage):
     _confirm_password_locator = (By.ID, "signup_password_confirm")
     _log_in_locator = (By.ID, "wpLoginAttempt")
 
-    def log_in(self, user="default"):
-        credentials = self.credentials_of_user(user)
-        self.type_username(credentials["username"])
-        self.type_password(credentials["password"])
+    def log_in(self, user='default'):
+        credentials = self.testsetup.credentials[user]
+        self.type_username(credentials['username'])
+        self.type_password(credentials['password'])
         self.click_log_in()
 
     def type_username(self, username):
