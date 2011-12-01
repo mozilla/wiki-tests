@@ -39,7 +39,7 @@ import base_page
 
 class HomePage(base_page.BasePage):
 
-    _page_title = "Main Page - MozillaWiki"
+    _page_title = "MozillaWiki"
 
     def go_to_home_page(self):
         self.selenium.get(self.testsetup.base_url + "/")
