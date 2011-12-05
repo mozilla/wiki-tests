@@ -34,6 +34,8 @@
 #
 # ***** END LICENSE BLOCK *****
 
+from unittestzero import Assert
+from selenium.webdriver.support.ui import WebDriverWait
 
 class Page(object):
 
@@ -44,12 +46,12 @@ class Page(object):
 
     @property
     def is_the_current_page(self):
-        page_title = self.selenium.title
-        if not page_title == self._page_title:
-            print "Expected page title: %s" % self._page_title
-            raise Exception("Expected page title does not match actual page title.")
-        else:
-            return True
+        if self._page_title:
+            WebDriverWait(self.selenium, 10).until(lambda s: self.selenium.title)
+
+        Assert.equal(self.selenium.title, self._page_title,
+            "Expected page title: %s. Actual page title: %s" % (self._page_title, self.selenium.title))
+        return True
 
     def is_element_visible(self, locator):
         try:
