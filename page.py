@@ -34,8 +34,8 @@
 #
 # ***** END LICENSE BLOCK *****
 
-from unittestzero import Assert
 from selenium.webdriver.support.ui import WebDriverWait
+from unittestzero import Assert
 
 class Page(object):
 
@@ -49,8 +49,7 @@ class Page(object):
         if self._page_title:
             WebDriverWait(self.selenium, 10).until(lambda s: self.selenium.title)
 
-        Assert.equal(self.selenium.title, self._page_title,
-            "Expected page title: %s. Actual page title: %s" % (self._page_title, self.selenium.title))
+        Assert.equal(self.selenium.title, self._page_title)
         return True
 
     def is_element_visible(self, locator):
