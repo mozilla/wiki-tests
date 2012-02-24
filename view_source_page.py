@@ -14,4 +14,4 @@ class ViewSourcePage(base_page.BasePage):
 
     @property
     def source_textarea(self):
-    	return self.selenium.find_element(*self._source_textarea_locator).text
+        return self.selenium.find_element(*self._source_textarea_locator).text

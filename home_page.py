@@ -18,4 +18,4 @@ class HomePage(base_page.BasePage):
         self.is_the_current_page
 
     def click_view_source(self):
-    	self.selenium.find_element(*self._view_source_locator).click()
+        self.selenium.find_element(*self._view_source_locator).click()
