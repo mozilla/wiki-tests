@@ -10,11 +10,11 @@ import base_page
 
 class HomePage(base_page.BasePage):
 
-    _page_title = "MozillaWiki"
-    _view_source_locator = (By.CSS_SELECTOR, "#ca-viewsource a")
+    _page_title = 'MozillaWiki'
+    _view_source_locator = (By.CSS_SELECTOR, '#ca-viewsource a')
 
     def go_to_home_page(self):
-        self.selenium.get(self.testsetup.base_url + "/")
+        self.selenium.get(self.testsetup.base_url + '/')
         self.is_the_current_page
 
     def click_view_source(self):
