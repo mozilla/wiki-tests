@@ -19,4 +19,4 @@ class HomePage(base_page.BasePage):
 
     def click_view_source(self):
         self.selenium.find_element(*self._view_source_locator).click()
-	return view_source_page.ViewSourcePage(self.testsetup)
+        return view_source_page.ViewSourcePage(self.testsetup)
