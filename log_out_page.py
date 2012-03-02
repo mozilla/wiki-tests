@@ -8,4 +8,4 @@ import base_page
 
 class LogOutPage(base_page.BasePage):
 
-    _page_title = "Log out - MozillaWiki"
+    _page_title = 'Log out - MozillaWiki'

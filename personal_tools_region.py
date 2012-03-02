@@ -10,8 +10,8 @@ from page import Page
 
 class PersonalToolsRegion(Page):
 
-    _log_in_or_create_account_link_locator = (By.CSS_SELECTOR, "#pt-login a")
-    _log_out_link_locator = (By.CSS_SELECTOR, "#pt-logout a")
+    _log_in_or_create_account_link_locator = (By.CSS_SELECTOR, '#pt-login a')
+    _log_out_link_locator = (By.CSS_SELECTOR, '#pt-logout a')
 
     @property
     def is_log_in_or_create_account_visible(self):

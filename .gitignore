@@ -1,2 +1,4 @@
+*.yaml
+results/*
 *.pyc
 *.komodoproject

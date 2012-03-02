@@ -10,12 +10,12 @@ import base_page
 
 class LogInOrCreateAccountPage(base_page.BasePage):
 
-    _page_title = "Log in / create account - MozillaWiki"
+    _page_title = 'Log in / create account - MozillaWiki'
 
-    _username_locator = (By.ID, "wpName1")
-    _password_locator = (By.ID, "wpPassword1")
-    _confirm_password_locator = (By.ID, "signup_password_confirm")
-    _log_in_locator = (By.ID, "wpLoginAttempt")
+    _username_locator = (By.ID, 'wpName1')
+    _password_locator = (By.ID, 'wpPassword1')
+    _confirm_password_locator = (By.ID, 'signup_password_confirm')
+    _log_in_locator = (By.ID, 'wpLoginAttempt')
 
     def log_in(self, user='default'):
         credentials = self.testsetup.credentials[user]
