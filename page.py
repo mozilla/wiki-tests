@@ -6,6 +6,7 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from unittestzero import Assert
 
+
 class Page(object):
 
     def __init__(self, testsetup):

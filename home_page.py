@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 import base_page
 import view_source_page
 
+
 class HomePage(base_page.BasePage):
 
     _page_title = 'MozillaWiki'

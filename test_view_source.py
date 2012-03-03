@@ -8,6 +8,7 @@ from unittestzero import Assert
 
 import home_page
 
+
 class TestViewSource:
 
     def test_visitor_can_view_source(self, mozwebqa):

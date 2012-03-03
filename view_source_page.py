@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 
 import base_page
 
+
 class ViewSourcePage(base_page.BasePage):
 
     _page_title = 'View source - MozillaWiki'
