@@ -14,7 +14,7 @@ import log_out_page
 
 class TestLogIn:
 
-    @pytest.mark.prod
+    @pytest.mark.nondestructive
     def test_valid_user_can_log_out(self, mozwebqa):
         home_pg = home_page.HomePage(mozwebqa)
         home_pg.go_to_home_page()
