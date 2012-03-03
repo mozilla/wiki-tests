@@ -12,7 +12,7 @@ import personal_tools_region
 
 class BasePage(Page):
 
-    _page_title_locator = (By.CSS_SELECTOR, '#page-title')
+    _page_title_locator = (By.ID, 'page-title')
 
     @property
     def personal_tools_region(self):

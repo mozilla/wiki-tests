@@ -13,6 +13,7 @@ import view_source_page
 class HomePage(base_page.BasePage):
 
     _page_title = 'MozillaWiki'
+
     _view_source_locator = (By.CSS_SELECTOR, '#ca-viewsource a')
 
     def go_to_home_page(self):

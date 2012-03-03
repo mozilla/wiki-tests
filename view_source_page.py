@@ -12,7 +12,8 @@ import base_page
 class ViewSourcePage(base_page.BasePage):
 
     _page_title = 'View source - MozillaWiki'
-    _source_textarea_locator = (By.CSS_SELECTOR, 'textarea#wpTextbox1')
+
+    _source_textarea_locator = (By.ID, 'wpTextbox1')
 
     @property
     def source_textarea(self):
