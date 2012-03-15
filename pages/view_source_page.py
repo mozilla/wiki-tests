@@ -6,10 +6,10 @@
 
 from selenium.webdriver.common.by import By
 
-import base_page
+import base
 
 
-class ViewSourcePage(base_page.BasePage):
+class ViewSourcePage(base.BasePage):
 
     _page_title = 'View source - MozillaWiki'
 

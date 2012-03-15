@@ -6,11 +6,11 @@
 
 from selenium.webdriver.common.by import By
 
-import base_page
+import base 
 import view_source_page
 
 
-class HomePage(base_page.BasePage):
+class HomePage(base.BasePage):
 
     _page_title = 'MozillaWiki'
 
