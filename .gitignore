@@ -2,3 +2,5 @@
 results/*
 *.pyc
 *.komodoproject
+
+.DS_Store
