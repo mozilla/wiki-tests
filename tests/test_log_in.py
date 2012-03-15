@@ -7,8 +7,8 @@
 import pytest
 from unittestzero import Assert
 
-from pages.home_page import HomePage
-import pages.log_in_or_create_account_page
+from pages.home import HomePage
+import pages.log_in_or_create_account
 
 
 class TestLogIn:
@@ -19,7 +19,7 @@ class TestLogIn:
         home_pg.go_to_home_page()
         home_pg.personal_tools_region.click_log_in_or_create_account()
 		
-        log_in_or_create_account_pg = pages.log_in_or_create_account_page.LogInOrCreateAccountPage(mozwebqa)
+        log_in_or_create_account_pg = pages.log_in_or_create_account.LogInOrCreateAccountPage(mozwebqa)
         log_in_or_create_account_pg.log_in()
         Assert.true(home_pg.is_the_current_page)
         Assert.false(home_pg.personal_tools_region.is_log_in_or_create_account_visible)

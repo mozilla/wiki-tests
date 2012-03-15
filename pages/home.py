@@ -7,7 +7,7 @@
 from selenium.webdriver.common.by import By
 
 import base 
-import view_source_page
+import view_source
 
 
 class HomePage(base.BasePage):
@@ -22,4 +22,4 @@ class HomePage(base.BasePage):
 
     def click_view_source(self):
         self.selenium.find_element(*self._view_source_locator).click()
-        return view_source_page.ViewSourcePage(self.testsetup)
+        return view_source.ViewSourcePage(self.testsetup)

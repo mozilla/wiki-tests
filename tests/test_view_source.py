@@ -7,7 +7,7 @@
 import pytest
 from unittestzero import Assert
 
-from pages.home_page import HomePage
+from pages.home import HomePage
 
 
 class TestViewSource:
