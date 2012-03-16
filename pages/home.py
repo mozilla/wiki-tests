@@ -6,11 +6,10 @@
 
 from selenium.webdriver.common.by import By
 
-import base 
-import view_source
+from base import BasePage
 
 
-class HomePage(base.BasePage):
+class HomePage(BasePage):
 
     _page_title = 'MozillaWiki'
 
@@ -22,4 +21,5 @@ class HomePage(base.BasePage):
 
     def click_view_source(self):
         self.selenium.find_element(*self._view_source_locator).click()
-        return view_source.ViewSourcePage(self.testsetup)
+        from view_source import ViewSourcePage
+        return ViewSourcePage(self.testsetup)

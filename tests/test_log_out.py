@@ -9,7 +9,7 @@ from unittestzero import Assert
 
 from pages.home import HomePage
 from pages.log_in_or_create_account import LogInOrCreateAccountPage
-import pages.log_out
+from pages.log_out import LogOutPage
 
 
 class TestLogIn:
@@ -20,10 +20,10 @@ class TestLogIn:
         home_pg.go_to_home_page()
         home_pg.personal_tools_region.click_log_in_or_create_account()
 
-        log_in_or_create_account_pg = pages.log_in_or_create_account.LogInOrCreateAccountPage(mozwebqa)
+        log_in_or_create_account_pg = LogInOrCreateAccountPage(mozwebqa)
         log_in_or_create_account_pg.log_in()
 
-        log_out_pg = pages.log_out.LogOutPage(mozwebqa)
+        log_out_pg = LogOutPage(mozwebqa)
         home_pg.personal_tools_region.click_log_out()
         Assert.true(log_out_pg.is_the_current_page)
         Assert.true(log_out_pg.personal_tools_region.is_log_in_or_create_account_visible)
