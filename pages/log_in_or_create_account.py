@@ -6,10 +6,10 @@
 
 from selenium.webdriver.common.by import By
 
-import base
+from base import BasePage
 
 
-class LogInOrCreateAccountPage(base.BasePage):
+class LogInOrCreateAccountPage(BasePage):
 
     _page_title = 'Log in / create account - MozillaWiki'
 
