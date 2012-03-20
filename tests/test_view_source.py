@@ -7,14 +7,14 @@
 import pytest
 from unittestzero import Assert
 
-import home_page
+from pages.home import HomePage
 
 
 class TestViewSource:
 
     @pytest.mark.nondestructive
     def test_visitor_can_view_source(self, mozwebqa):
-        home_pg = home_page.HomePage(mozwebqa)
+        home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()
         view_source_pg = home_pg.click_view_source()
 
