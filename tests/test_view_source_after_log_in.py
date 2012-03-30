@@ -25,7 +25,7 @@ class TestViewSource:
         Assert.false(home_pg.personal_tools_region.is_log_in_or_create_account_visible)
         Assert.true(home_pg.personal_tools_region.is_log_out_visible)
 
-        view_source_pg = home_pg.click_view_source()
+        view_source_pg = home_pg.header_region.click_view_source()
 
         Assert.true(view_source_pg.is_the_current_page)
         Assert.greater(len(view_source_pg.source_textarea.strip()), 0)
