@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 
 from page import Page
 from personal_tools_region import PersonalToolsRegion
+from header_region import HeaderRegion
 
 
 class BasePage(Page):
@@ -17,6 +18,10 @@ class BasePage(Page):
     @property
     def personal_tools_region(self):
         return PersonalToolsRegion(self.testsetup)
+
+    @property
+    def header_region(self):
+        return HeaderRegion(self.testsetup)
 
     @property
     def page_title(self):
