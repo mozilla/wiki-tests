@@ -61,6 +61,8 @@ class PersonalToolsRegion(Page):
 
     def click_my_watchlist(self):
         self.selenium.find_element(*self._my_watchlist_page_link_locator).click()
+        from watch_page import WatchPage
+        return WatchPage(self.testsetup)
 
     @property
     def is_semantic_wl_visible(self):
