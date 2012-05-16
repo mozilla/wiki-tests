@@ -16,6 +16,7 @@ class HeaderRegion(Page):
     _view_source_locator = (By.CSS_SELECTOR, '#ca-viewsource a')
     _history_locator = (By.CSS_SELECTOR, '#ca-history a')
     _watch_locator = (By.CSS_SELECTOR, '#ca-watch a')
+    _unwatch_locator = (By.CSS_SELECTOR, '#ca-unwatch a')
     _refresh_locator = (By.CSS_SELECTOR, '#ca-watch a')
     _search_field_locator = (By.CSS_SELECTOR, '#quick-search div input#q')
     _search_button_locator = (By.CSS_SELECTOR, '#quick-search-btn')
@@ -49,6 +50,17 @@ class HeaderRegion(Page):
 
     def click_watch(self):
         self.selenium.find_element(*self._watch_locator).click()
+        from watch_page import WatchPage
+        return WatchPage(self.testsetup)
+
+    @property
+    def is_unwatch_visible(self):
+        return self.is_element_visible(self._unwatch_locator)
+
+    def click_unwatch(self):
+        self.selenium.find_element(*self._unwatch_locator).click()
+        from watch_page import WatchPage
+        return WatchPage(self.testsetup)
 
     @property
     def is_refresh_visible(self):
