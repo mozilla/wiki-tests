@@ -43,6 +43,8 @@ class HeaderRegion(Page):
 
     def click_history(self):
         self.selenium.find_element(*self._history_locator).click()
+        from view_history import ViewHistoryPage
+        return ViewHistoryPage(self.testsetup)
 
     @property
     def is_watch_visible(self):
