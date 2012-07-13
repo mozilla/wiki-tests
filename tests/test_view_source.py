@@ -8,6 +8,7 @@ import pytest
 from unittestzero import Assert
 
 from pages.home import HomePage
+from pages.log_in_or_create_account import LogInOrCreateAccountPage
 
 
 class TestViewSource:
@@ -16,7 +17,18 @@ class TestViewSource:
     def test_visitor_can_view_source(self, mozwebqa):
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()
-        view_source_pg = home_pg.header_region.click_view_source()
+		
+	view_source_pg = home_pg.header_region.click_view_source()
+        Assert.true(view_source_pg.is_the_current_page)
+        Assert.greater(len(view_source_pg.source_textarea.strip()), 0)
+		
+        home_pg.personal_tools_region.click_log_in_or_create_account()
+        log_in_or_create_account_pg = LogInOrCreateAccountPage(mozwebqa)
+        log_in_or_create_account_pg.log_in()
 
+        Assert.false(home_pg.personal_tools_region.is_log_in_or_create_account_visible)
+        Assert.true(home_pg.personal_tools_region.is_log_out_visible)
+
+        view_source_pg = home_pg.header_region.click_view_source()
         Assert.true(view_source_pg.is_the_current_page)
         Assert.greater(len(view_source_pg.source_textarea.strip()), 0)
