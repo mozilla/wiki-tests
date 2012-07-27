@@ -5,6 +5,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import NoSuchElementException
 from unittestzero import Assert
 
 
@@ -29,3 +30,13 @@ class Page(object):
             return self.selenium.find_element(*locator).is_displayed()
         except:
             return False
+
+    def is_element_present(self, *locator):
+        self.selenium.implicitly_wait(0)
+        try:
+            self.selenium.find_element(*locator)
+            return True
+        except NoSuchElementException:
+            return False
+        finally:
+            self.selenium.implicitly_wait(self.testsetup.default_implicit_wait)
