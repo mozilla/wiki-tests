@@ -9,6 +9,7 @@ from unittestzero import Assert
 
 from pages.home import HomePage
 from pages.search_results import SearchResultsPage
+from pages.header_region import HeaderRegion
 from pages.log_in_or_create_account import LogInOrCreateAccountPage
 
 
@@ -19,7 +20,6 @@ class TestSearchPage:
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()
 
-        search_results_pg = SearchResultsPage(mozwebqa)
-        search_results_pg.click_search_button()
+        search_results_pg = home_pg.header_region.click_search_button()
         Assert.true(search_results_pg.is_the_current_page)
-        Assert.false(search_results_pg.is_search_results_area_present,"Search Results area is present.")
+        Assert.false(search_results_pg.is_search_results_area_present, "Search Results area is present.")
