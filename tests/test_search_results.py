@@ -23,3 +23,8 @@ class TestSearchPage:
         search_results_pg = home_pg.header_region.click_search_button()
         Assert.true(search_results_pg.is_the_current_page)
         Assert.false(search_results_pg.is_search_results_area_present, "Search Results area is present.")
+
+        Assert.true(search_results_pg.is_search_breadcrumbs_present)
+        Assert.equal(search_results_pg.search_page_title, "Search", "Search Results page header mismatch.")
+        Assert.equal(search_results_pg.search_page_breadcrumbs_text, u'Home \xbb  Search:', "Search Results page breadcrumbs are incorrect.")
+        Assert.equal(search_results_pg.main_search_box_text, "", "Main Search field should be empty.")
