@@ -15,7 +15,7 @@ class SearchResultsPage(BasePage):
     _page_title = 'Search - MozillaWiki'
 
     _search_results_area_locator = (By.CSS_SELECTOR, '.searchresults')
-    _search_button_locator = (By.CSS_SELECTOR, '#quick-search-btn')
+    _search_button_locator = (By.ID, 'quick-search-btn')
 
     def click_search_button(self):
         self.selenium.find_element(*self._search_button_locator).click()
