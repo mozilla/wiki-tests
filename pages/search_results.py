@@ -7,7 +7,6 @@
 from selenium.webdriver.common.by import By
 
 from base import BasePage
-from page import Page
 
 
 class SearchResultsPage(BasePage):
