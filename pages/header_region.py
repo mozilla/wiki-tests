@@ -19,7 +19,7 @@ class HeaderRegion(Page):
     _unwatch_locator = (By.CSS_SELECTOR, '#ca-unwatch a')
     _refresh_locator = (By.CSS_SELECTOR, '#ca-watch a')
     _search_field_locator = (By.CSS_SELECTOR, '#quick-search div input#q')
-    _search_button_locator = (By.CSS_SELECTOR, '#quick-search-btn')
+    _search_button_locator = (By.ID, 'quick-search-btn')
 
     @property
     def is_main_page_visible(self):
@@ -76,4 +76,6 @@ class HeaderRegion(Page):
         return self.is_element_visible(self._search_field_locator)
 
     def click_search_button(self):
-        self.selenium.find_element(*self._search_button_locator)
+        self.selenium.find_element(*self._search_button_locator).click()
+        from search_results import SearchResultsPage
+        return SearchResultsPage(self.testsetup)
