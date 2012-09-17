@@ -7,6 +7,7 @@
 from selenium.webdriver.common.by import By
 from page import Page
 
+
 class HeaderRegion(Page):
 
     _page_locator = (By.CSS_SELECTOR, '#ca-nstab-main a')
