@@ -8,7 +8,6 @@ import pytest
 from unittestzero import Assert
 
 from pages.home import HomePage
-from pages.footer_region import FooterRegion
 
 
 class TestFooterPresent:
@@ -17,7 +16,7 @@ class TestFooterPresent:
     def test_footer_items_present_for_guest(self, mozwebqa):
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()
-        home_pg.navigation_region.click_randon_page_link()
+        home_pg.navigation_region.click_random_page_link()
 
         random_pg = home_pg.footer_region
 

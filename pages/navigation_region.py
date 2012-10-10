@@ -19,8 +19,8 @@ class NavigationRegion(Page):
     _help_link_locator = (By.CSS_SELECTOR, '#n-help a')
 
     @property
-    def is_randon_page_link_visible(self):
+    def is_random_page_link_visible(self):
         return self.is_element_visible(self._random_page_link_locator)
 
-    def click_randon_page_link(self):
+    def click_random_page_link(self):
         self.selenium.find_element(*self._random_page_link_locator).click()
