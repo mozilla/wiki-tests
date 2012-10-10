@@ -45,4 +45,3 @@ class TestSearchPage:
 
         for matchedTerm in search_results_pg.get_matched_search_term_in_results:
             Assert.equal(matchedTerm.text.lower(), SearchResultsPage._search_term.lower(), "Search term was not found in matched result. Expected: " + SearchResultsPage._search_term + " but got: " + matchedTerm.text)
-
