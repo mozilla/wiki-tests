@@ -21,27 +21,20 @@ class TestWatchPage:
 
         log_in_or_create_account_pg = LogInOrCreateAccountPage(mozwebqa)
         log_in_or_create_account_pg.log_in()
-
-        Assert.false(home_pg.personal_tools_region.is_log_in_or_create_account_visible)
         Assert.true(home_pg.personal_tools_region.is_log_out_visible)
 
-        if home_pg.header_region.is_watch_visible:
-                watch_pg = home_pg.header_region.click_watch()
-                Assert.true(watch_pg.is_the_current_page)
-                Assert.equal(watch_pg.page_title, "Added to watchlist")
-                watch_pg.click_return_to_page()
-                Assert.true(home_pg.header_region.is_unwatch_visible)
-                unwatch_pg = home_pg.header_region.click_unwatch()
-                Assert.equal(watch_pg.page_title, "Removed from watchlist")
-                unwatch_pg.click_return_to_page()
-                Assert.true(home_pg.header_region.is_watch_visible)
-        else:
-                unwatch_pg = home_pg.header_region.click_unwatch()
-                Assert.equal(watch_pg.page_title, "Removed from watchlist")
-                unwatch_pg.click_return_to_page()
-                Assert.true(home_pg.header_region.is_watch_visible)
-                watch_pg = home_pg.header_region.click_watch()
-                Assert.true(watch_pg.is_the_current_page)
-                Assert.equal(watch_pg.page_title, "Added to watchlist")
-                watch_pg.click_return_to_page()
-                Assert.true(home_pg.header_region.is_unwatch_visible)
+        # Make sure page is not currently watched
+        if home_pg.header_region.is_unwatch_visible:
+            home_pg.header_region.click_unwatch()
+            home_pg.go_to_home_page()
+        Assert.true(home_pg.header_region.is_watch_visible)
+
+        watch_pg = home_pg.header_region.click_watch()
+        Assert.true(watch_pg.is_the_current_page)
+        Assert.equal(watch_pg.page_title, "Added to watchlist")
+        watch_pg.click_return_to_page()
+        Assert.true(home_pg.header_region.is_unwatch_visible)
+        unwatch_pg = home_pg.header_region.click_unwatch()
+        Assert.equal(unwatch_pg.page_title, "Removed from watchlist")
+        unwatch_pg.click_return_to_page()
+        Assert.true(home_pg.header_region.is_watch_visible)
