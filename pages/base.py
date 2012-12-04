@@ -7,13 +7,19 @@
 from selenium.webdriver.common.by import By
 
 from page import Page
+from navigation_region import NavigationRegion
 from personal_tools_region import PersonalToolsRegion
 from header_region import HeaderRegion
+from footer_region import FooterRegion
 
 
 class BasePage(Page):
 
     _page_title_locator = (By.ID, 'page-title')
+
+    @property
+    def navigation_region(self):
+        return NavigationRegion(self.testsetup)
 
     @property
     def personal_tools_region(self):
@@ -22,6 +28,10 @@ class BasePage(Page):
     @property
     def header_region(self):
         return HeaderRegion(self.testsetup)
+
+    @property
+    def footer_region(self):
+        return FooterRegion(self.testsetup)
 
     @property
     def page_title(self):
