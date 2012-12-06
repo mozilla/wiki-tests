@@ -26,10 +26,6 @@ class ViewUserContributionsPage(BasePage):
         return self.is_element_visible(self._page_title_locator)
 
     @property
-    def page_title_text(self):
-        return self.selenium.find_element(*self._page_title_locator).text
-
-    @property
     def is_breadcrumbs_visible(self):
         return self.is_element_visible(self._breadcrumbs_locator)
 
