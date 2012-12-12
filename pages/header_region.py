@@ -13,6 +13,7 @@ class HeaderRegion(Page):
     _page_locator = (By.CSS_SELECTOR, '#ca-nstab-main a')
     _discussion_locator = (By.CSS_SELECTOR, '#ca-talk a')
     _view_source_locator = (By.CSS_SELECTOR, '#ca-viewsource a')
+    _edit_locator = (By.CSS_SELECTOR, '#ca-edit a')
     _history_locator = (By.CSS_SELECTOR, '#ca-history a')
     _watch_locator = (By.CSS_SELECTOR, '#ca-watch a')
     _unwatch_locator = (By.CSS_SELECTOR, '#ca-unwatch a')
@@ -44,7 +45,18 @@ class HeaderRegion(Page):
         self.selenium.find_element(*self._history_locator).click()
         from view_history import ViewHistoryPage
         return ViewHistoryPage(self.testsetup)
+    
+    
+        
+    @property
+    def is_edit_visible(self):
+        return self.is_element_visible(self._edit_locator)
 
+    def click_edit(self):
+        self.selenium.find_element(*self._edit_locator).click()
+        from edit_wiki import EditWiki
+        return EditWiki(self.testsetup)  
+    
     @property
     def is_watch_visible(self):
         return self.is_element_visible(self._watch_locator)
@@ -83,3 +95,4 @@ class HeaderRegion(Page):
         self.selenium.find_element(*self._search_button_locator).click()
         from search_results import SearchResultsPage
         return SearchResultsPage(self.testsetup)
+

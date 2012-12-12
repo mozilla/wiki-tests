@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Test Report</title>
+    <style>body {font-family: Helvetica, Arial, sans-serif; font-size: 12px}
+body * {box-sizing: -moz-border-box; box-sizing: -webkit-border-box; box-sizing: border-box}
+a {color: #999}
+h2 {font-size: 16px}
+table {border: 1px solid #e6e6e6; color: #999; font-size: 12px; border-collapse: collapse}
+#configuration tr:nth-child(odd) {background-color: #f6f6f6}
+#results {width:100%}
+th, td {padding: 5px; border: 1px solid #E6E6E6; text-align: left}
+th {font-weight: bold}
+tr.passed, tr.skipped, tr.xfailed, tr.error, tr.failed, tr.xpassed {color: inherit}
+tr.passed + tr.additional {display: none}
+.passed {color: green}
+.skipped, .xfailed {color: orange}
+.error, .failed, .xpassed {color: red}
+.log:only-child {height: inherit}
+.log {background-color: #e6e6e6; border: 1px solid #e6e6e6; color: black; display: block; font-family: "Courier New", Courier, monospace; height: 230px; overflow-y: scroll; padding: 5px; white-space:pre-wrap}
+.screenshot, .video {border: 1px solid #e6e6e6; float:right; height:240px; margin-left:5px; overflow:hidden; width:320px}
+.screenshot img {width: 320px}</style></head>
+  <body>
+    <p>Report generated on 27-Oct-2012 at 16:26:09 by pytest-mozwebqa 1.0</p>
+    <h2>Configuration</h2>
+    <table id="configuration">
+      <tr>
+        <td>Credentials</td>
+        <td>./credentials.yaml</td></tr>
+      <tr>
+        <td>Driver</td>
+        <td>firefox</td></tr>
+      <tr>
+        <td>Selenium API</td>
+        <td>webdriver</td></tr>
+      <tr>
+        <td>Selenium Server</td>
+        <td>http://localhost:4444</td></tr>
+      <tr>
+        <td>Timeout</td>
+        <td>60</td></tr></table>
+    <h2>Summary</h2>
+    <p>0 tests ran in 0 seconds.<br/><span class="passed">0 passed</span>, <span class="skipped">0 skipped</span>, <span class="failed">0 failed</span>, <span class="error">1 errors</span>.<br/><span class="skipped">0 expected failures</span>, <span class="failed">0 unexpected passes</span>.</p>
+    <h2>Results</h2>
+    <table id="results">
+      <tr>
+        <th>Result</th>
+        <th>Class</th>
+        <th>Name</th>
+        <th>Duration</th>
+        <th>Links</th></tr>
+      <tr class="error">
+        <td class="error">Error</td>
+        <td>test_edit_wiki.TestEditWiki</td>
+        <td>test_valid_user_can_log_in</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="log">item = &lt;Function 'test_valid_user_can_log_in'&gt;<br/><br/>    def pytest_runtest_setup(item):<br/>        item.debug = {<br/>            'urls': [],<br/>            'screenshots': [],<br/>            'html': [],<br/>            'logs': [],<br/>            'network_traffic': []}<br/>        TestSetup.base_url = item.config.option.base_url<br/>    <br/>        # consider this environment sensitive if the base url or any redirection<br/>        # history matches the regular expression<br/>        sensitive = False<br/>        if TestSetup.base_url:<br/>            r = requests.get(TestSetup.base_url, verify=False)<br/>            urls = [h.url for h in r.history] + [r.url]<br/>            matches = [re.search(item.config.option.sensitive_url, u) for u in urls]<br/>            sensitive = any(matches)<br/>    <br/>        destructive = 'nondestructive' not in item.keywords<br/>    <br/>        if (sensitive and destructive):<br/>            first_match = matches[next(i for i, match in enumerate(matches) if match)]<br/>    <br/>            # skip the test with an appropriate message<br/>            py.test.skip('This test is destructive and the target URL is ' \<br/>                         'considered a sensitive environment. If this test is ' \<br/>                         'not destructive, add the \'nondestructive\' marker to ' \<br/>                         'it. Sensitive URL: %s' % first_match.string)<br/>    <br/>        if item.config.option.sauce_labs_credentials_file:<br/>            item.sauce_labs_credentials = credentials.read(item.config.option.sauce_labs_credentials_file)<br/>    <br/>        if item.config.option.credentials_file:<br/>&gt;           TestSetup.credentials = credentials.read(item.config.option.credentials_file)<br/><br/>/usr/local/lib/python2.6/dist-packages/pytest_mozwebqa/pytest_mozwebqa.py:84: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>filename = './credentials.yaml'<br/><br/>    def read(filename):<br/>&gt;       stream = file(filename, 'r')<br/><span class="error">E       IOError: [Errno 2] No such file or directory: './credentials.yaml'</span><br/><br/>/usr/local/lib/python2.6/dist-packages/pytest_mozwebqa/credentials.py:9: IOError<br/></div></td></tr></table></body></html>

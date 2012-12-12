@@ -7,6 +7,7 @@
 from selenium.webdriver.common.by import By
 
 from base import BasePage
+import logging
 
 
 class LogInOrCreateAccountPage(BasePage):
@@ -17,9 +18,14 @@ class LogInOrCreateAccountPage(BasePage):
     _password_locator = (By.ID, 'wpPassword1')
     _confirm_password_locator = (By.ID, 'signup_password_confirm')
     _log_in_locator = (By.ID, 'wpLoginAttempt')
+    
+
 
     def log_in(self, user='default'):
+        logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
         credentials = self.testsetup.credentials[user]
+        logging.info(credentials['username']);
+        logging.info(credentials['password']);
         self.type_username(credentials['username'])
         self.type_password(credentials['password'])
         self.click_log_in()

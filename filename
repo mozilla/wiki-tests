@@ -1,4 +1,3 @@
-[DEFAULT]
 api = webdriver
 baseurl = https://wiki.mozilla.org
 tags = wiki
