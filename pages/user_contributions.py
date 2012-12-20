@@ -5,6 +5,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
 
 from base import BasePage
 
@@ -48,6 +49,8 @@ class ViewUserContributionsPage(BasePage):
 
     def click_search_button(self):
         self.selenium.find_element(*self._contrib_search_button_locator).click()
+        WebDriverWait(self.selenium, self.timeout).until(lambda s: self.is_contrib_results_present,
+                                                         'Timed out waiting for contribution results.')
 
     @property
     def is_contrib_results_present(self):
