@@ -9,8 +9,6 @@ from unittestzero import Assert
 
 from pages.home import HomePage
 from pages.search_results import SearchResultsPage
-from pages.header_region import HeaderRegion
-from pages.log_in_or_create_account import LogInOrCreateAccountPage
 
 
 class TestSearchPage:
@@ -36,6 +34,7 @@ class TestSearchPage:
 
         home_pg.header_region.enter_text_into_search_field()
         search_results_pg = home_pg.header_region.click_search_button()
+        search_results_pg.wait_for_results()
         Assert.true(search_results_pg.is_search_results_area_present, "Search Results area is not present.")
 
         Assert.true(search_results_pg.is_search_breadcrumbs_present, "Breadcrumbs are missing.")
