@@ -5,6 +5,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
 
 from base import BasePage
 
@@ -48,3 +49,7 @@ class SearchResultsPage(BasePage):
     @property
     def get_matched_search_term_in_results(self):
         return self.selenium.find_elements(*self._search_page_matched_term_locator)
+
+    def wait_for_results(self):
+        WebDriverWait(self.selenium, self.timeout).until(lambda s: self.is_search_results_area_present,
+                                                         'Timed out waiting for search results.')
