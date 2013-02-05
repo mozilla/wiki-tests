@@ -16,7 +16,7 @@ from pages.log_in_or_create_account import LogInOrCreateAccountPage
 class TestUploadPage:
 
     @pytest.mark.nondestructive
-    def test_file_upload_page(self, mozwebqa):
+    def test_verify_file_upload_page(self, mozwebqa):
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()
         home_pg.personal_tools_region.click_log_in_or_create_account()

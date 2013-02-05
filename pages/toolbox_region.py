@@ -11,8 +11,6 @@ from page import Page
 
 class ToolBoxRegion(Page):
 
-    _page_title = 'Upload file - MozillaWiki'
-
     _what_links_here_link_locator = (By.CSS_SELECTOR, '#t-whatlinkshere a')
     _related_changes_link_locator = (By.CSS_SELECTOR, '#t-recentchangeslinked a')
     _upload_file_link_locator = (By.CSS_SELECTOR, '#t-upload a')
