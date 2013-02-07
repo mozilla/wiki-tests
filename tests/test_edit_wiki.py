@@ -9,14 +9,14 @@ from unittestzero import Assert
 
 from pages.home import HomePage
 from pages.log_in_or_create_account import LogInOrCreateAccountPage
-from pages.edit_wiki import EditWiki
+import time
 
 
 class TestEditWiki:
 
     @pytest.mark.nondestructive
     def test_user_can_edit_page(self, mozwebqa):
-        _edit_text_entered = 'MozWebQA Edit page wiki-test.'
+        _edit_text_entered = 'MozWebQA Edit page wiki-test - ' + str(time.time())
 
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()
