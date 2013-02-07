@@ -11,8 +11,6 @@ from base import BasePage
 
 class EditWiki(BasePage):
 
-    _edit_text_entered = 'MozWebQA Edit page wiki-test.'
-
     _edit_textarea_locator = (By.ID, 'wpTextbox1')
     _save_button_locator = (By.ID, 'wpSave')
     _user_text_entered_locator = (By.CSS_SELECTOR, '#main-content p')
@@ -21,9 +19,9 @@ class EditWiki(BasePage):
     def is_edit_page_textarea_present(self):
         return self.is_element_present(*self._edit_textarea_locator)
 
-    def enter_edit_textarea_text(self):
+    def enter_edit_textarea_text(self, enter_text):
         self.selenium.find_element(*self._edit_textarea_locator).clear()
-        self.selenium.find_element(*self._edit_textarea_locator).send_keys(EditWiki._edit_text_entered)
+        self.selenium.find_element(*self._edit_textarea_locator).send_keys(enter_text)
 
     @property
     def is_edit_page_save_button_present(self):
