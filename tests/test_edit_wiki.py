@@ -15,7 +15,7 @@ from pages.edit_wiki import EditWiki
 class TestEditWiki:
 
     @pytest.mark.nondestructive
-    def test_valid_user_can_log_in(self, mozwebqa):
+    def test_user_can_edit_page(self, mozwebqa):
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()
         home_pg.personal_tools_region.click_log_in_or_create_account()
