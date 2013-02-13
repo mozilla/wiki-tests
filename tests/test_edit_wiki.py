@@ -14,7 +14,6 @@ import time
 
 class TestEditWiki:
 
-    @pytest.mark.nondestructive
     def test_user_can_edit_page(self, mozwebqa):
         _edit_text_entered = 'MozWebQA Edit page wiki-test - ' + str(time.time())
 

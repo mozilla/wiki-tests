@@ -86,7 +86,6 @@ class TestCreateUser:
         #                                                              'Please enter a well-formatted address or '
         #                                                              'empty that field.'))
 
-    @pytest.mark.nondestructive
     def test_create_valid_new_user(self, mozwebqa):
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()
