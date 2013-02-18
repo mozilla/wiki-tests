@@ -26,7 +26,7 @@ class LogInOrCreateAccountPage(BasePage):
     _create_account_button_locator = (By.ID, 'wpCreateaccount')
     _create_account_error_box_locator = (By.CLASS_NAME, 'errorbox')
     _new_user_created_message = (By.ID, 'page-title')
-    _new_user_welcome_message = (By.CLASS_NAME, 'mw-headline')
+    _new_user_welcome_message = (By.CSS_SELECTOR, 'h2 .mw-headline')
 
     def log_in(self, user='default'):
         credentials = self.testsetup.credentials[user]
@@ -87,11 +87,14 @@ class LogInOrCreateAccountPage(BasePage):
     def is_error_message_present(self):
         return self.is_element_present(*self._create_account_error_box_locator)
 
+    @property
     def get_error_message_text(self):
         return self.selenium.find_element(*self._create_account_error_box_locator).text
 
+    @property
     def get_user_created_message(self):
         return self.selenium.find_element(*self._new_user_created_message).text
 
+    @property
     def get_user_welcome_message(self):
         return self.selenium.find_element(*self._new_user_welcome_message).text
