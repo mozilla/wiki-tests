@@ -4,7 +4,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-import pytest
 from unittestzero import Assert
 
 from pages.home import HomePage
@@ -14,7 +13,6 @@ import time
 
 class TestEditWiki:
 
-    @pytest.mark.nondestructive
     def test_user_can_edit_page(self, mozwebqa):
         _edit_text_entered = 'MozWebQA Edit page wiki-test - ' + str(time.time())
 
