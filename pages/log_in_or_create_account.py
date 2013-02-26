@@ -85,7 +85,7 @@ class LogInOrCreateAccountPage(BasePage):
 
     @property
     def is_error_message_present(self):
-        return self.is_element_present(*self._create_account_error_box_locator)
+        return self.is_element_visible(self._create_account_error_box_locator)
 
     @property
     def get_error_message_text(self):

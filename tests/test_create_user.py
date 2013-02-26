@@ -40,7 +40,6 @@ class TestCreateUser:
         create_account_pg.click_create_account_link()
         create_account_pg.create_user(mock_user['username'], mock_user['password'],
                                       'blah', mock_user['email'], mock_user['realname'])
-        create_account_pg.wait_for_page_to_load()
         Assert.true(create_account_pg.is_error_message_present)
         Assert.true(create_account_pg.get_error_message_text.index('The passwords you entered do not match.'))
 
