@@ -11,6 +11,7 @@ from navigation_region import NavigationRegion
 from personal_tools_region import PersonalToolsRegion
 from header_region import HeaderRegion
 from footer_region import FooterRegion
+from selenium.webdriver.support.ui import WebDriverWait
 
 
 class BasePage(Page):
@@ -36,3 +37,6 @@ class BasePage(Page):
     @property
     def page_title(self):
         return self.selenium.find_element(*self._page_title_locator).text
+
+    def wait_for_page_to_load(self):
+        WebDriverWait(self.selenium, self.timeout).until(lambda s: self.is_element_visible(self._page_title_locator))
