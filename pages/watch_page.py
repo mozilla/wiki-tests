@@ -11,9 +11,10 @@ from base import BasePage
 
 class WatchPage(BasePage):
 
-    _page_title = 'Added to watchlist - MozillaWiki'
+    _page_title = 'Main Page - MozillaWiki'
 
-    _return_to_page_locator = (By.CSS_SELECTOR, '#mw-returnto a')
+    _return_to_page_locator = (By.CSS_SELECTOR, '#n-mainpage-description > a')
+    _watchlist_message_locator = (By.CSS_SELECTOR, '#mw-content-text > p')
 
     @property
     def return_to_page_visible(self):
@@ -21,3 +22,8 @@ class WatchPage(BasePage):
 
     def click_return_to_page(self):
         self.selenium.find_element(*self._return_to_page_locator).click()
+
+    @property
+    def watchlist_message(self):
+        """Return the message displayed."""
+        return self.selenium.find_element(*self._watchlist_message_locator).text
