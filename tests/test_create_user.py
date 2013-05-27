@@ -55,7 +55,7 @@ class TestCreateUser:
         create_account_pg.create_user(mock_user['username'], mock_user['password'],
                                       mock_user['password'], '', mock_user['realname'])
         Assert.true(create_account_pg.is_error_message_present)
-        Assert.true(create_account_pg.get_error_message_text.index('No e-mail address'))
+        Assert.true(create_account_pg.get_error_message_text.index('No email address'))
 
     @pytest.mark.nondestructive
     def test_valid_email_required_error(self, mozwebqa):
@@ -69,7 +69,7 @@ class TestCreateUser:
         create_account_pg.create_user(mock_user['username'], mock_user['password'],
                                       mock_user['password'], 'notValidEmail', mock_user['realname'])
         Assert.true(create_account_pg.is_error_message_present)
-        Assert.true(create_account_pg.get_error_message_text.index('The e-mail address cannot be accepted as '
+        Assert.true(create_account_pg.get_error_message_text.index('The email address cannot be accepted as '
                                                                    'it appears to have an invalid format. Please '
                                                                    'enter a well-formatted address or empty that field.'))
         # Commenting out this check due to issue https://bugzilla.mozilla.org/show_bug.cgi?id=839457
