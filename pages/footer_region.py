@@ -45,7 +45,7 @@ class FooterRegion(Page):
 
     @property
     def is_privacy_policy_link_visible(self):
-        return  self.is_element_visible(self._footer_privacy_policy_link_locator)
+        return self.is_element_visible(self._footer_privacy_policy_link_locator)
 
     @property
     def get_random_page_title(self):
