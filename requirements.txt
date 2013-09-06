@@ -8,4 +8,4 @@ rdflib==3.1.0
 selenium
 requests==1.2.3
 certifi==0.0.8
-chardet==1.0.1
+chardet==2.1.1
