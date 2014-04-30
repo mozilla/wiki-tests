@@ -13,8 +13,6 @@ from pages.log_in_or_create_account import LogInOrCreateAccountPage
 
 class TestWatchPage:
 
-    @pytest.mark.xfail("'-dev' in config.getvalue('base_url')",
-                       reason="Issue https://github.com/mozilla/wiki-tests/issues/48")
     @pytest.mark.nondestructive
     def test_visitor_can_watch_page(self, mozwebqa):
         home_pg = HomePage(mozwebqa)
