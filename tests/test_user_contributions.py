@@ -12,7 +12,7 @@ from pages.user_contributions import ViewUserContributionsPage
 from pages.log_in_or_create_account import LogInOrCreateAccountPage
 
 
-class TestWatchPage:
+class TestUserContributionsPage:
 
     @pytest.mark.nondestructive
     def test_user_contributions_page(self, mozwebqa):

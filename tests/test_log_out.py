@@ -12,7 +12,7 @@ from pages.log_in_or_create_account import LogInOrCreateAccountPage
 from pages.log_out import LogOutPage
 
 
-class TestLogIn:
+class TestLogOut:
 
     @pytest.mark.nondestructive
     def test_valid_user_can_log_out(self, mozwebqa):
