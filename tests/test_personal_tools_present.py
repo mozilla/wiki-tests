@@ -11,7 +11,7 @@ from pages.home import HomePage
 from pages.log_in_or_create_account import LogInOrCreateAccountPage
 
 
-class TestLogIn:
+class TestPersonalTools:
 
     @pytest.mark.nondestructive
     def test_valid_user_can_log_in(self, mozwebqa):
