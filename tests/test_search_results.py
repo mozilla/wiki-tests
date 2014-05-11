@@ -28,7 +28,7 @@ class TestSearchPage:
         Assert.equal(search_results_pg.main_search_box_text, "", "Main Search field should be empty.")
 
     @pytest.mark.nondestructive
-    def test_search_term_returmed_and_matched(self, mozwebqa):
+    def test_search_term_returned_and_matched(self, mozwebqa):
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()
 
