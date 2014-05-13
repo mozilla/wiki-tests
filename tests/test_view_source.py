@@ -23,6 +23,8 @@ class TestViewSource:
         Assert.greater(len(view_source_pg.source_textarea.strip()), 0)
 
     @pytest.mark.nondestructive
+    @pytest.mark.skipif("'wiki.allizom' in config.getvalue('base_url')",
+                       reason="Bug 1008282 preventing new account registration on staging")
     def test_logged_in_user_can_view_source(self, mozwebqa):
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()

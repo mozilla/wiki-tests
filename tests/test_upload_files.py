@@ -16,6 +16,8 @@ from pages.log_in_or_create_account import LogInOrCreateAccountPage
 class TestUploadPage:
 
     @pytest.mark.nondestructive
+    @pytest.mark.skipif("'wiki.allizom' in config.getvalue('base_url')",
+                       reason="Bug 1008282 preventing new account registration on staging")
     def test_verify_file_upload_page(self, mozwebqa):
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()

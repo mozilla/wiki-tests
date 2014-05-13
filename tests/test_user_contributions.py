@@ -12,9 +12,11 @@ from pages.user_contributions import ViewUserContributionsPage
 from pages.log_in_or_create_account import LogInOrCreateAccountPage
 
 
-class TestWatchPage:
+class TestUserContributionsPage:
 
     @pytest.mark.nondestructive
+    @pytest.mark.skipif("'wiki.allizom' in config.getvalue('base_url')",
+                       reason="Bug 1008282 preventing new account registration on staging")
     def test_user_contributions_page(self, mozwebqa):
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()
@@ -35,6 +37,8 @@ class TestWatchPage:
         Assert.true(user_contrib_pg.is_contrib_user_option_visible, "Options to show contributions from any user or IP is not present.")
 
     @pytest.mark.nondestructive
+    @pytest.mark.skipif("'wiki.allizom' in config.getvalue('base_url')",
+                       reason="Bug 1008282 preventing new account registration on staging")
     def test_search_user_contributions_results_returned(self, mozwebqa):
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()
