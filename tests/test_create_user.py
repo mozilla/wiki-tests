@@ -15,8 +15,7 @@ from mocks.mock_user import MockUser
 class TestCreateUser:
 
     @pytest.mark.nondestructive
-    @pytest.mark.xfail('"allizom" in config.getvalue("base_url")',
-                       reason='Bug 1011818 - MozillaWiki on QA staging and dev has automated account creation test issues')
+    @pytest.mark.xfail(reason='Bug 1011818 - MozillaWiki on QA staging and dev has automated account creation test issues')
     def test_user_already_exists_error(self, mozwebqa):
         mock_user = MockUser()
         home_pg = HomePage(mozwebqa)
@@ -32,8 +31,7 @@ class TestCreateUser:
             'Username entered already in use. Please choose a different name.'))
 
     @pytest.mark.nondestructive
-    @pytest.mark.xfail('"allizom" in config.getvalue("base_url")',
-                       reason='Bug 1011818 - MozillaWiki on QA staging and dev has automated account creation test issues')
+    @pytest.mark.xfail(reason='Bug 1011818 - MozillaWiki on QA staging and dev has automated account creation test issues')
     def test_passwords_mismatch_error(self, mozwebqa):
         mock_user = MockUser()
         home_pg = HomePage(mozwebqa)
@@ -48,8 +46,7 @@ class TestCreateUser:
         Assert.true(create_account_pg.get_error_message_text.index('The passwords you entered do not match.'))
 
     @pytest.mark.nondestructive
-    @pytest.mark.xfail('"allizom" in config.getvalue("base_url")',
-                       reason='Bug 1011818 - MozillaWiki on QA staging and dev has automated account creation test issues')
+    @pytest.mark.xfail(reason='Bug 1011818 - MozillaWiki on QA staging and dev has automated account creation test issues')
     def test_email_required_error(self, mozwebqa):
         mock_user = MockUser()
         home_pg = HomePage(mozwebqa)
@@ -64,8 +61,7 @@ class TestCreateUser:
         Assert.true(create_account_pg.get_error_message_text.index('No email address'))
 
     @pytest.mark.nondestructive
-    @pytest.mark.xfail('"allizom" in config.getvalue("base_url")',
-                       reason='Bug 1011818 - MozillaWiki on QA staging and dev has automated account creation test issues')
+    @pytest.mark.xfail(reason='Bug 1011818 - MozillaWiki on QA staging and dev has automated account creation test issues')
     def test_valid_email_required_error(self, mozwebqa):
         mock_user = MockUser()
         home_pg = HomePage(mozwebqa)
@@ -91,8 +87,7 @@ class TestCreateUser:
         #                                                              'Please enter a well-formatted address or '
         #                                                              'empty that field.'))
 
-    @pytest.mark.xfail('"allizom" in config.getvalue("base_url")',
-                       reason='Bug 1011818 - MozillaWiki on QA staging and dev has automated account creation test issues')
+    @pytest.mark.xfail(reason='Bug 1011818 - MozillaWiki on QA staging and dev has automated account creation test issues')
     def test_create_valid_new_user(self, mozwebqa):
         mock_user = MockUser()
         home_pg = HomePage(mozwebqa)

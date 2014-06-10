@@ -15,7 +15,6 @@ class FooterRegion(Page):
     _footer_last_modified_locator = (By.ID, 'f-lastmod')
     _footer_page_view_count_locator = (By.ID, 'f-viewcount')
     _footer_about_wiki_link_locator = (By.CSS_SELECTOR, '#f-list #f-about a')
-    _footer_disclaimer_link_locator = (By.CSS_SELECTOR, '#f-list #f-disclaimer a')
     _footer_privacy_policy_link_locator = (By.CSS_SELECTOR, '#f-list li a[href*=privacy-policy]')
     _random_page_title_locator = (By.ID, 'page-title')
 
@@ -38,10 +37,6 @@ class FooterRegion(Page):
     @property
     def is_about_wiki_link_visible(self):
         return self.is_element_visible(self._footer_about_wiki_link_locator)
-
-    @property
-    def is_disclaimer_link_visible(self):
-        return self.is_element_visible(self._footer_disclaimer_link_locator)
 
     @property
     def is_privacy_policy_link_visible(self):

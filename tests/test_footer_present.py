@@ -25,5 +25,4 @@ class TestFooterPresent:
         Assert.true(random_pg.is_last_modified_label_visible, "Footer Region Last Modified label is missing for " + random_pg.get_random_page_title)
         Assert.true(random_pg.is_view_count_label_visible, "Footer Region Page View Count label is missing for " + random_pg.get_random_page_title)
         Assert.true(random_pg.is_about_wiki_link_visible, "Footer Region About MozillaWiki link is missing for " + random_pg.get_random_page_title)
-        Assert.true(random_pg.is_disclaimer_link_visible, "Footer Region Disclaimer link is missing for " + random_pg.get_random_page_title)
         Assert.true(random_pg.is_privacy_policy_link_visible, "Footer Region Privacy Policy link is missing for " + random_pg.get_random_page_title)
