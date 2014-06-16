@@ -5,6 +5,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
 
 from page import Page
 
@@ -62,6 +63,7 @@ class HeaderRegion(Page):
 
     def click_watch(self):
         self.selenium.find_element(*self._watch_locator).click()
+        self.wait_for_ajax()
         from watch_page import WatchPage
         return WatchPage(self.testsetup)
 
@@ -71,6 +73,7 @@ class HeaderRegion(Page):
 
     def click_unwatch(self):
         self.selenium.find_element(*self._unwatch_locator).click()
+        self.wait_for_ajax()
         from watch_page import WatchPage
         return WatchPage(self.testsetup)
 
@@ -94,3 +97,7 @@ class HeaderRegion(Page):
         self.selenium.find_element(*self._search_button_locator).click()
         from search_results import SearchResultsPage
         return SearchResultsPage(self.testsetup)
+
+    def wait_for_ajax(self):
+        WebDriverWait(self.selenium, self.timeout).until(
+            lambda m: self.selenium.execute_script('return jQuery.active == 0'))
