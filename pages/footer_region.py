@@ -11,12 +11,12 @@ from page import Page
 class FooterRegion(Page):
 
     _footer_area_locator = (By.ID, 'footer')
-    _footer_logo_locator = (By.ID, 'logo-footer')
-    _footer_last_modified_locator = (By.ID, 'f-lastmod')
-    _footer_page_view_count_locator = (By.ID, 'f-viewcount')
-    _footer_about_wiki_link_locator = (By.CSS_SELECTOR, '#f-list #f-about a')
-    _footer_privacy_policy_link_locator = (By.CSS_SELECTOR, '#f-list li a[href*=privacy-policy]')
-    _random_page_title_locator = (By.ID, 'page-title')
+    _footer_logo_locator = (By.ID, 'footer-icons')
+    _footer_last_modified_locator = (By.ID, 'footer-info-lastmod')
+    _footer_page_view_count_locator = (By.ID, 'footer-info-viewcount')
+    _footer_about_wiki_link_locator = (By.CSS_SELECTOR, '#footer-places-about a')
+    _footer_privacy_policy_link_locator = (By.CSS_SELECTOR, '#footer-places-privacy a')
+    _random_page_title_locator = (By.ID, 'firstHeading')
 
     @property
     def is_footer_area_visible(self):

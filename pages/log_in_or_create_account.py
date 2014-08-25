@@ -25,7 +25,7 @@ class LogInOrCreateAccountPage(BasePage):
     _create_realname_locator = (By.ID, 'wpRealName')
     _create_account_button_locator = (By.ID, 'wpCreateaccount')
     _create_account_error_box_locator = (By.CLASS_NAME, 'errorbox')
-    _new_user_created_message = (By.ID, 'page-title')
+    _new_user_created_message = (By.ID, 'firstHeading')
     _new_user_welcome_message = (By.CSS_SELECTOR, 'h2 .mw-headline')
 
     def log_in(self, user='default'):

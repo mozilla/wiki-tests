@@ -12,23 +12,22 @@ from base import BasePage
 
 class ViewUserContributionsPage(BasePage):
 
-    _history_list_locator = (By.ID, 'pagehistory')
-    _page_title_locator = (By.ID, 'page-title')
-    _breadcrumbs_locator = (By.ID, 'breadcrumbs')
+    _page_title_locator = (By.ID, 'firstHeading')
+    _user_links_list_locator = (By.ID, 'contentSub')
     _contrib_form_locator = (By.CSS_SELECTOR, '.mw-contributions-form')
     _contrib_newbie_option_locator = (By.ID, 'newbie')
     _contrib_user_option_locator = (By.ID, 'user')
     _contrib_ip_username_input_locator = (By.CSS_SELECTOR, '.mw-contributions-form fieldset input[name=target]')
-    _contrib_search_button_locator = (By.CSS_SELECTOR, 'input[type=submit][value=Search]')
-    _contrib_search_results_locator = (By.CSS_SELECTOR, '#main-content ul li a[title]')
+    _contrib_search_button_locator = (By.CSS_SELECTOR, '.mw-submit')
+    _contrib_search_results_locator = (By.CSS_SELECTOR, '#mw-content-text ul li a[title]')
 
     @property
     def is_page_title_visible(self):
         return self.is_element_visible(self._page_title_locator)
 
     @property
-    def is_breadcrumbs_visible(self):
-        return self.is_element_visible(self._breadcrumbs_locator)
+    def is_user_links_list_visible(self):
+        return self.is_element_visible(self._user_links_list_locator)
 
     @property
     def is_contrib_form_visible(self):

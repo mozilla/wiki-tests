@@ -17,11 +17,12 @@ class HeaderRegion(Page):
     _view_source_locator = (By.CSS_SELECTOR, '#ca-viewsource a')
     _edit_locator = (By.CSS_SELECTOR, '#ca-edit a')
     _history_locator = (By.CSS_SELECTOR, '#ca-history a')
+    _more_options_arrow = (By.CSS_SELECTOR, '#p-cactions a')
     _watch_locator = (By.CSS_SELECTOR, '#ca-watch a')
     _unwatch_locator = (By.CSS_SELECTOR, '#ca-unwatch a')
     _refresh_locator = (By.CSS_SELECTOR, '#ca-watch a')
-    _search_field_locator = (By.CSS_SELECTOR, '#quick-search div input#q')
-    _search_button_locator = (By.ID, 'quick-search-btn')
+    _search_field_locator = (By.ID, 'searchInput')
+    _search_button_locator = (By.ID, 'mw-searchButton')
 
     @property
     def is_main_page_visible(self):
@@ -57,6 +58,10 @@ class HeaderRegion(Page):
         from edit_wiki import EditWiki
         return EditWiki(self.testsetup)
 
+    def unfurl_header_dropdown(self):
+        if not self.is_watch_visible or not self.is_unwatch_visible:
+            self.selenium.find_element(*self._more_options_arrow).click()
+
     @property
     def is_watch_visible(self):
         return self.is_element_visible(self._watch_locator)
@@ -79,9 +84,11 @@ class HeaderRegion(Page):
 
     @property
     def is_refresh_visible(self):
+        self.selenium.find_element(*self._more_options_arrow).click()
         return self.is_element_visible(self._refresh_locator)
 
     def click_refresh(self):
+        self.selenium.find_element(*self._more_options_arrow).click()
         self.selenium.find_element(*self._refresh_locator).click()
 
     @property

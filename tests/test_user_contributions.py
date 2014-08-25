@@ -29,7 +29,6 @@ class TestWatchPage:
 
         Assert.true(user_contrib_pg.is_page_title_visible, "Page Title is missing from the page.")
         Assert.equal(user_contrib_pg.page_title, "User contributions", "Page Title is incorrect.")
-        Assert.true(user_contrib_pg.is_breadcrumbs_visible, "Breadcrumbs are missing from the page.")
         Assert.true(user_contrib_pg.is_contrib_form_visible, "Search for contributions form is missing from the page.")
         Assert.true(user_contrib_pg.is_contrib_newbie_option_visible, "Options to only show contributions from new accounts is not present.")
         Assert.true(user_contrib_pg.is_contrib_user_option_visible, "Options to show contributions from any user or IP is not present.")
