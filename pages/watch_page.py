@@ -14,7 +14,7 @@ class WatchPage(BasePage):
     _page_title = 'MozillaWiki'
 
     _return_to_page_locator = (By.CSS_SELECTOR, '#n-mainpage-description > a')
-    _watchlist_message_locator = (By.CSS_SELECTOR, 'div.mw-js-message-ajaxwatch > p')
+    _watchlist_message_locator = (By.CSS_SELECTOR, '.mw-js-message-ajaxwatch p')
 
     @property
     def return_to_page_visible(self):

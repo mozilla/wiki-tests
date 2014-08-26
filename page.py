@@ -6,6 +6,7 @@
 
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.action_chains import ActionChains
 from unittestzero import Assert
 
 
@@ -40,3 +41,8 @@ class Page(object):
             return False
         finally:
             self.selenium.implicitly_wait(self.testsetup.default_implicit_wait)
+
+    def mouse_over(self, *locator):
+        actions_dropdown_element = self.selenium.find_element(*locator)
+        mouse_over = ActionChains(self.selenium).move_to_element(actions_dropdown_element)
+        mouse_over.perform()
