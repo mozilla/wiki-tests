@@ -11,7 +11,7 @@ from base import BasePage
 
 class ViewSourcePage(BasePage):
 
-    _page_title = 'View source - MozillaWiki'
+    _page_title = 'View source for Main Page - MozillaWiki'
 
     _source_textarea_locator = (By.ID, 'wpTextbox1')
 

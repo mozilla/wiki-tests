@@ -14,6 +14,8 @@ from pages.log_in_or_create_account import LogInOrCreateAccountPage
 class TestWatchPage:
 
     @pytest.mark.nondestructive
+    @pytest.mark.xfail("'-dev' in config.getvalue('base_url')",
+                       reason='Bug 1049082 - Page markup for the watch notification message differs between dev and staging/prod')
     def test_visitor_can_watch_page(self, mozwebqa):
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()
@@ -31,10 +33,10 @@ class TestWatchPage:
 
         watch_pg = home_pg.header_region.click_watch()
         Assert.true(watch_pg.is_the_current_page)
-        Assert.equal(watch_pg.page_title, "Added to watchlist")
+        Assert.contains('The page "Main Page" has been added to your watchlist.', watch_pg.watchlist_message)
         watch_pg.click_return_to_page()
         Assert.true(home_pg.header_region.is_unwatch_visible)
         unwatch_pg = home_pg.header_region.click_unwatch()
-        Assert.equal(unwatch_pg.page_title, "Removed from watchlist")
+        Assert.equal('The page "Main Page" has been removed from your watchlist.', unwatch_pg.watchlist_message)
         unwatch_pg.click_return_to_page()
         Assert.true(home_pg.header_region.is_watch_visible)
