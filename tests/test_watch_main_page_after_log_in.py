@@ -26,17 +26,21 @@ class TestWatchPage:
         Assert.true(home_pg.personal_tools_region.is_log_out_visible)
 
         # Make sure page is not currently watched
+        home_pg.header_region.mouse_over_actions_dropdown()
         if home_pg.header_region.is_unwatch_visible:
             home_pg.header_region.click_unwatch()
             home_pg.go_to_home_page()
+        home_pg.header_region.mouse_over_actions_dropdown()
         Assert.true(home_pg.header_region.is_watch_visible)
 
         watch_pg = home_pg.header_region.click_watch()
         Assert.true(watch_pg.is_the_current_page)
         Assert.contains('The page "Main Page" has been added to your watchlist.', watch_pg.watchlist_message)
         watch_pg.click_return_to_page()
+        home_pg.header_region.mouse_over_actions_dropdown()
         Assert.true(home_pg.header_region.is_unwatch_visible)
         unwatch_pg = home_pg.header_region.click_unwatch()
         Assert.equal('The page "Main Page" has been removed from your watchlist.', unwatch_pg.watchlist_message)
         unwatch_pg.click_return_to_page()
+        home_pg.header_region.mouse_over_actions_dropdown()
         Assert.true(home_pg.header_region.is_watch_visible)

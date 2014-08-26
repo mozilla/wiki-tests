@@ -17,6 +17,7 @@ class HeaderRegion(Page):
     _view_source_locator = (By.CSS_SELECTOR, '#ca-viewsource a')
     _edit_locator = (By.CSS_SELECTOR, '#ca-edit a')
     _history_locator = (By.CSS_SELECTOR, '#ca-history a')
+    _actions_locator = (By.ID, 'p-cactions')
     _watch_locator = (By.CSS_SELECTOR, '#ca-watch a')
     _unwatch_locator = (By.CSS_SELECTOR, '#ca-unwatch a')
     _refresh_locator = (By.CSS_SELECTOR, '#ca-watch a')
@@ -56,6 +57,9 @@ class HeaderRegion(Page):
         self.selenium.find_element(*self._edit_locator).click()
         from edit_wiki import EditWiki
         return EditWiki(self.testsetup)
+
+    def mouse_over_actions_dropdown(self):
+        return self.mouse_over(*self._actions_locator)
 
     @property
     def is_watch_visible(self):
