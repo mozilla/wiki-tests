@@ -14,6 +14,7 @@ from pages.search_results import SearchResultsPage
 class TestSearchPage:
 
     @pytest.mark.nondestructive
+    @pytest.mark.xfail(reason='Bug 1058726 - Search button ID differs between dev and staging/prod')
     def test_no_results_returned_from_blank_search(self, mozwebqa):
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()
@@ -22,13 +23,12 @@ class TestSearchPage:
         Assert.true(search_results_pg.is_the_current_page)
         Assert.false(search_results_pg.is_search_results_area_present, "Search Results area is present.")
 
-        Assert.true(search_results_pg.is_search_breadcrumbs_present, "Breadcrumbs are missing.")
         Assert.equal(search_results_pg.search_page_title, "Search", "Search Results page header mismatch.")
-        Assert.equal(search_results_pg.search_page_breadcrumbs_text, u'Home \xbb  Search:', "Search Results page breadcrumbs are incorrect.")
         Assert.equal(search_results_pg.main_search_box_text, "", "Main Search field should be empty.")
 
     @pytest.mark.nondestructive
-    def test_search_term_returmed_and_matched(self, mozwebqa):
+    @pytest.mark.xfail(reason='Bug 1058726 - Search button ID differs between dev and staging/prod')
+    def test_search_term_returned_and_matched(self, mozwebqa):
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()
 
@@ -37,9 +37,7 @@ class TestSearchPage:
         search_results_pg.wait_for_results()
         Assert.true(search_results_pg.is_search_results_area_present, "Search Results area is not present.")
 
-        Assert.true(search_results_pg.is_search_breadcrumbs_present, "Breadcrumbs are missing.")
         Assert.true(search_results_pg.is_search_types_present, "Search Types are missing.")
-        Assert.equal(search_results_pg.search_page_breadcrumbs_text, u'Home \xbb  Search: ' + SearchResultsPage._search_term, "Search Results page breadcrumbs are incorrect.")
         Assert.equal(search_results_pg.main_search_box_text, SearchResultsPage._search_term, "Main Search field should contain the term searched - " + SearchResultsPage._search_term)
 
         for matchedTerm in search_results_pg.get_matched_search_term_in_results:

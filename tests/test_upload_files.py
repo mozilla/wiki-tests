@@ -16,6 +16,7 @@ from pages.log_in_or_create_account import LogInOrCreateAccountPage
 class TestUploadPage:
 
     @pytest.mark.nondestructive
+    @pytest.mark.xfail(reason='Bug 1058736 - Toolbox in left sidebar is closed by default on dev, open on staging/prod.')
     def test_verify_file_upload_page(self, mozwebqa):
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()

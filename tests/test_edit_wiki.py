@@ -9,10 +9,11 @@ from unittestzero import Assert
 from pages.home import HomePage
 from pages.log_in_or_create_account import LogInOrCreateAccountPage
 import time
-
+import pytest
 
 class TestEditWiki:
 
+    @pytest.mark.xfail(reason='Bug 1058736 - Toolbox in left sidebar is closed by default on dev, open on staging/prod.')
     def test_user_can_edit_page(self, mozwebqa):
         _edit_text_entered = 'MozWebQA Edit page wiki-test - ' + str(time.time())
 

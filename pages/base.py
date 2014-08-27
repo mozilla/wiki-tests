@@ -16,7 +16,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 class BasePage(Page):
 
-    _page_title_locator = (By.ID, 'page-title')
+    _page_title_locator = (By.ID, 'firstHeading')
 
     @property
     def navigation_region(self):
