@@ -14,7 +14,7 @@ class WatchPage(BasePage):
     _page_title = 'MozillaWiki'
 
     _return_to_page_locator = (By.CSS_SELECTOR, '#ca-nstab-main > span > a')
-    _watchlist_message_locator = (By.CSS_SELECTOR, 'div#mw-js-message > p')
+    _watchlist_message_locator = (By.CSS_SELECTOR, 'div#mw-notification-area > div > div > p')
 
     @property
     def return_to_page_visible(self):
