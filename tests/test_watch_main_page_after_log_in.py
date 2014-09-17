@@ -14,8 +14,6 @@ from pages.log_in_or_create_account import LogInOrCreateAccountPage
 class TestWatchPage:
 
     @pytest.mark.nondestructive
-    @pytest.mark.xfail("'-dev' in config.getvalue('base_url')",
-                       reason='Bug 1049082 - Page markup for the watch notification message differs between dev and staging/prod')
     def test_visitor_can_watch_page(self, mozwebqa):
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()
