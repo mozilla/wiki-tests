@@ -23,27 +23,18 @@ class TestWatchPage:
         log_in_or_create_account_pg.log_in()
         Assert.true(home_pg.personal_tools_region.is_log_out_visible)
 
-        # Refs bug: 1058819
-        home_pg.header_region.unfurl_header_dropdown()
-
         # Make sure page is not currently watched
         if home_pg.header_region.is_unwatch_visible:
             home_pg.header_region.click_unwatch()
             home_pg.go_to_home_page()
-            # Refs bug: 1058819
-            home_pg.header_region.unfurl_header_dropdown()
         Assert.true(home_pg.header_region.is_watch_visible)
 
         watch_pg = home_pg.header_region.click_watch()
         Assert.true(watch_pg.is_the_current_page)
         Assert.contains('The page "Main Page" has been added to your watchlist. Future changes to this page and its associated talk page will be listed there.', watch_pg.watchlist_message)
         watch_pg.click_return_to_page()
-        # Refs bug: 1058819
-        home_pg.header_region.unfurl_header_dropdown()
         Assert.true(home_pg.header_region.is_unwatch_visible)
         unwatch_pg = home_pg.header_region.click_unwatch()
         Assert.equal('The page "Main Page" has been removed from your watchlist.', unwatch_pg.watchlist_message)
         unwatch_pg.click_return_to_page()
-        # Refs bug: 1058819
-        home_pg.header_region.unfurl_header_dropdown()
         Assert.true(home_pg.header_region.is_watch_visible)
