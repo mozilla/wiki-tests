@@ -58,10 +58,6 @@ class HeaderRegion(Page):
         from edit_wiki import EditWiki
         return EditWiki(self.testsetup)
 
-    def unfurl_header_dropdown(self):
-        if not self.is_watch_visible or not self.is_unwatch_visible:
-            self.selenium.find_element(*self._more_options_arrow).click()
-
     @property
     def is_watch_visible(self):
         return self.is_element_visible(self._watch_locator)
