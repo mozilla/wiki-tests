@@ -11,10 +11,10 @@ from base import BasePage
 
 class WatchPage(BasePage):
 
-    _page_title = 'MozillaWiki'
+    _page_title = 'Main Page - MozillaWiki'
 
     _return_to_page_locator = (By.CSS_SELECTOR, '#ca-nstab-main > span > a')
-    _watchlist_message_locator = (By.CSS_SELECTOR, 'div#mw-notification-area > div > div > p')
+    _watchlist_message_locator = (By.CSS_SELECTOR, 'div#mw-content-text > p')
 
     @property
     def return_to_page_visible(self):
