@@ -13,7 +13,7 @@ class EditWiki(BasePage):
 
     _edit_textarea_locator = (By.ID, 'wpTextbox1')
     _save_button_locator = (By.ID, 'wpSave')
-    _user_text_entered_locator = (By.CSS_SELECTOR, '#main-content p')
+    _save_message_text_locator = (By.CSS_SELECTOR, '.postedit-container')
 
     @property
     def is_edit_page_textarea_present(self):
@@ -31,9 +31,9 @@ class EditWiki(BasePage):
         self.selenium.find_element(*self._save_button_locator).click()
 
     @property
-    def is_user_entered_text_saved_and_present(self):
-        return self.is_element_present(*self._user_text_entered_locator)
+    def is_save_message_text_present(self):
+        return self.is_element_present(*self._save_message_text_locator)
 
     @property
-    def get_user_entered_text(self):
-        return self.selenium.find_element(*self._user_text_entered_locator).text
+    def get_save_message_text(self):
+        return self.selenium.find_element(*self._save_message_text_locator).text

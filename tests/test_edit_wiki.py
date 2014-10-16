@@ -13,7 +13,6 @@ import pytest
 
 class TestEditWiki:
 
-    @pytest.mark.xfail(reason='Bug 1058736 - Toolbox in left sidebar is closed by default on dev, open on staging/prod.')
     def test_user_can_edit_page(self, mozwebqa):
         _edit_text_entered = 'MozWebQA Edit page wiki-test - ' + str(time.time())
 
@@ -37,7 +36,7 @@ class TestEditWiki:
             Assert.true(edit_pg.is_edit_page_save_button_present)
             edit_pg.click_save_button()
 
-            Assert.true(edit_pg.is_user_entered_text_saved_and_present)
-            Assert.equal(edit_pg.get_user_entered_text, _edit_text_entered)
+            Assert.true(edit_pg.is_save_message_text_present)
+            Assert.equal(u'Your edit was saved.\n\xd7',edit_pg.get_save_message_text)
         else:
             Assert.fail("Error - you don't have privileges to edit this page.")
