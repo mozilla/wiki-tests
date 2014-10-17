@@ -11,11 +11,15 @@ from page import Page
 
 class ToolBoxRegion(Page):
 
+    _tools_portal_link_locator = (By.CSS_SELECTOR, '#p-tb a')
     _what_links_here_link_locator = (By.CSS_SELECTOR, '#t-whatlinkshere a')
     _related_changes_link_locator = (By.CSS_SELECTOR, '#t-recentchangeslinked a')
     _upload_file_link_locator = (By.CSS_SELECTOR, '#t-upload a')
     _special_pages_link_locator = (By.CSS_SELECTOR, '#t-specialpages a')
     _browse_properties_link_locator = (By.CSS_SELECTOR, '#t-smwbrowselink a')
+
+    def click_tools_portal_link(self):
+        self.selenium.find_element(*self._tools_portal_link_locator).click()
 
     @property
     def is_upload_file_link_visible(self):
