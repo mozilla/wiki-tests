@@ -13,7 +13,7 @@ class EditWiki(BasePage):
 
     _edit_textarea_locator = (By.ID, 'wpTextbox1')
     _save_button_locator = (By.ID, 'wpSave')
-    _save_message_text_locator = (By.CSS_SELECTOR, '.postedit-container') # need to change this locator.
+    _save_message_text_locator = (By.CSS_SELECTOR, '.postedit-container')
 
     @property
     def is_edit_page_textarea_present(self):
