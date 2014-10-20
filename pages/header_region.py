@@ -22,7 +22,7 @@ class HeaderRegion(Page):
     _unwatch_locator = (By.CSS_SELECTOR, '#ca-unwatch a')
     _refresh_locator = (By.CSS_SELECTOR, '#ca-watch a')
     _search_field_locator = (By.ID, 'searchInput')
-    _search_button_locator = (By.ID, 'mw-searchButton')
+    _search_button_locator = (By.ID, 'searchButton')
 
     @property
     def is_main_page_visible(self):

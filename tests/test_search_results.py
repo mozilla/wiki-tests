@@ -14,7 +14,6 @@ from pages.search_results import SearchResultsPage
 class TestSearchPage:
 
     @pytest.mark.nondestructive
-    @pytest.mark.xfail(reason='Bug 1058726 - Search button ID differs between dev and staging/prod')
     def test_no_results_returned_from_blank_search(self, mozwebqa):
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()
@@ -27,7 +26,6 @@ class TestSearchPage:
         Assert.equal(search_results_pg.main_search_box_text, "", "Main Search field should be empty.")
 
     @pytest.mark.nondestructive
-    @pytest.mark.xfail(reason='Bug 1058726 - Search button ID differs between dev and staging/prod')
     def test_search_term_returned_and_matched(self, mozwebqa):
         home_pg = HomePage(mozwebqa)
         home_pg.go_to_home_page()
