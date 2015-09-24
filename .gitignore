@@ -1,7 +1,0 @@
-*.yaml
-results/*
-*.pyc
-*.komodoproject
-.DS_Store
-.idea/*
-*.yaml
